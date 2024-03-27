@@ -29,6 +29,7 @@ class Game:
                 self.guesses -= 1
                 if (self.guesses == 0):
                     print(assets.hangman[self.guesses])
+                    print("Word: {}".format(self.word))
                     self.gameOver()
                 else:
                     self.wrong.append(ans)
@@ -68,7 +69,7 @@ class Game:
         print("Right: ", end="")
         for i in self.correct:
             print(i, end=", ")
-        print(" | Wrong: ", end="")
+        print("| Wrong: ", end="")
         for i in self.wrong:
             print(i, end=", ")
         print(end="\n")
@@ -93,7 +94,7 @@ class Game:
             print("Welcome to hangman!")
             self.firstTime = False
         while True:
-            ans: str = input("Would you like to play?(y/n):").lower()
+            ans: str = input("Would you like to play?(y/n): ").lower()
             if (ans == "y"):
                 break
             elif (ans == "n"):
